@@ -1,1 +1,17 @@
-let available=Number(localStorage.available||2041.02);let ledger=JSON.parse(localStorage.ledger||'[]');const a=document.getElementById('available'),l=document.getElementById('ledger');function r(){a.innerHTML='<div class="amt">$'+available.toFixed(2)+'</div>';l.innerHTML='';ledger.forEach(x=>{const li=document.createElement('li');li.textContent=`${x.category}: -$${x.amount.toFixed(2)} ${x.note}`;l.prepend(li)});localStorage.available=available;localStorage.ledger=JSON.stringify(ledger)};r();addBtn.onclick=()=>modal.classList.remove('hidden');cancel.onclick=()=>modal.classList.add('hidden');save.onclick=()=>{const amt=parseFloat(amount.value);if(!amt)return;ledger.push({amount:amt,category:category.value||'Expense',note:note.value||''});available-=amt;modal.classList.add('hidden');amount.value='';category.value='';note.value='';r();};
+const state=Storage.load();
+
+document.getElementById("availableBalance").innerText=
+
+"$"+state.available.toFixed(2);
+
+if(state.available===0){
+
+state.available=2041.02;
+
+Storage.save(state);
+
+document.getElementById("availableBalance").innerText=
+
+"$"+state.available.toFixed(2);
+
+}
