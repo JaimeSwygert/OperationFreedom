@@ -1,0 +1,1 @@
+const s=Storage.load();if(s.available===0){s.available=2041.02;Storage.save(s)}document.getElementById('availableBalance').textContent='$'+s.available.toFixed(2);

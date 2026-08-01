@@ -1,0 +1,1 @@
+const Storage={load(){return JSON.parse(localStorage.getItem('off'))||{available:0,transactions:[]}},save(d){localStorage.setItem('off',JSON.stringify(d))}};

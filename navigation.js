@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-screen]').forEach(b=>b.onclick=()=>{});
